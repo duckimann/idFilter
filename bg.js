@@ -38,3 +38,4 @@ chrome.windows.onRemoved.addListener((a) => {
     }
 });
 // Testing the Remote Repository Extensions
+// Testing 2
