@@ -37,3 +37,4 @@ chrome.windows.onRemoved.addListener((a) => {
         while (windowsId.length > 0) chrome.windows.remove(windowsId.shift());
     }
 });
+// Testing the Remote Repository Extensions
