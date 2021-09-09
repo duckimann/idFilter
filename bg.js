@@ -10,17 +10,19 @@ chrome.browserAction.onClicked.addListener((a) => {
         height: 700,
         focused: true
     }, (indexWD) => {
-        chrome.windows.create({
-            url: "about:blank",
-            state: "normal",
-            type: "panel",
-            width: 500,
-            height: 500,
-            focused: true
-        }, (curW) => {
-            windowsId = [...windowsId, indexWD.id, curW.id];
-            tabId = curW.tabs[0].id;
-        });
+        windowsId.push(indexWD.id);
+    });
+    chrome.windows.create({
+        url: "about:blank",
+        state: "normal",
+        type: "panel",
+        width: 1450,
+        height: 1000,
+        left: 500,
+        focused: true
+    }, (curW) => {
+        windowsId.push(curW.id);
+        tabId = curW.tabs[0].id;
     });
 });
 // Wait dashboard loaded
