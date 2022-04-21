@@ -21,14 +21,13 @@ class Tab {
     }
 }
 
-function sendSave(fileName, flags, content) {
-    let f = new FormData();
-    f.append("filename", fileName);
-    f.append("flags", flags);
-    f.append("id", content);
-    return fetch("http://127.0.0.1:99/saver.php", {
+function sendSave(fname, flag, content) {
+    return fetch("http://127.0.0.1/save", {
         method: "POST",
-        body: f
+        body: JSON.stringify({fname, flag, content}),
+        headers: {
+            "Content-Type": "application/json"
+        }
     });
 }
 
@@ -63,7 +62,7 @@ let navNext = () => {
             "pixiv_keep", // File Name to save shifted ID into if you hit "Keep"
             "pixiv_throw" // File Name to save shifted ID into if you hit "Throw"
         ];
-        sendSave((act) ? fileNames[0] : fileNames[1], "a", CurrentView.curId).then((a) => navNext());
+        sendSave((act) ? fileNames[0] : fileNames[1], "a", `${CurrentView.curId}\n`).then((a) => navNext());
     };
 document.querySelector("#keep").onmouseup = () => takeAct(true);
 document.querySelector("#throw").onmouseup = () => takeAct(false);

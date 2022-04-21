@@ -1,0 +1,24 @@
+{
+  "name": "idfilter",
+  "version": "1.0.0",
+  "description": "![theIdea](theIdea.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duckimann/idFilter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duckimann/idFilter/issues"
+  },
+  "homepage": "https://github.com/duckimann/idFilter#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
